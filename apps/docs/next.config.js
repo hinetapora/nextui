@@ -20,6 +20,11 @@ const nextConfig = {
       "logo.clearbit.com",
       "i.pravatar.cc",
       "nextui.org",
+      "via.placeholder.com", // Add the domain here
+      "upload.wikimedia.org", // You might also want to add other domains you're using
+      "other-image-domain.com", // Add any other image domains you're using
+      "rydercup.brightspotcdn.com",
+
     ],
   },
 };
