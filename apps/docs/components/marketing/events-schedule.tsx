@@ -1,52 +1,130 @@
+// components/marketing/EventsSchedule.tsx
 "use client";
 
-import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
+import React from "react";
+import {Card, CardHeader, CardBody, CardFooter, Link} from "@nextui-org/react";
+import NextLink from "next/link";
+import Image from "next/image";
+import {motion, AnimatePresence} from "framer-motion";
+import CountdownTimer from "./CountdownTimer";
+import {useIsMounted} from "@/hooks/use-is-mounted";
 
-// Define the event type directly here
+// Import the utility functions or components
+import {title, subtitle, titleWrapper, sectionWrapper} from "@/components/primitives";
+
 interface Event {
   id: string;
   name: string;
+  sportType: string;
   date: string;
   description: string;
   image: string;
+  instruction: string | null;
 }
 
 interface EventsScheduleProps {
   events: Event[];
 }
 
-export const EventsSchedule = ({ events }: EventsScheduleProps) => {
-  console.log("EventsSchedule rendered");
+export const EventsSchedule = ({events}: EventsScheduleProps) => {
+  const isMounted = useIsMounted();
 
   if (events.length === 0) {
     return <div>No events available</div>;
   }
 
   return (
-    <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
-      {events.map((event) => (
-        <Card
-          key={event.id}
-          shadow="sm"
-          isPressable
-          onPress={() => console.log(`Event pressed: ${event.name}`)}
-        >
-          <CardBody className="overflow-visible p-0">
-            <Image
-              shadow="sm"
-              radius="lg"
-              width="100%"
-              alt={event.name}
-              className="w-full object-cover h-[140px]"
-              src={event.image}
-            />
-          </CardBody>
-          <CardFooter className="text-small justify-between">
-            <b>{event.name}</b>
-            <p className="text-default-500">{new Date(event.date).toLocaleDateString()}</p>
-          </CardFooter>
-        </Card>
-      ))}
-    </div>
+    <>
+      {/* Add the new section at the top */}
+      <section className={sectionWrapper({class: "mt-16 lg:mt-44"})}>
+        <div className="flex flex-col gap-0 md:gap-8">
+          <div>
+            <div className={titleWrapper({class: "items-center"})}>
+              <div>
+                <h1 className={title({size: "lg"})}>Watch&nbsp;</h1>
+                <h1 className={title({color: "yellow", size: "lg"})}>What you Want</h1>
+              </div>
+              <div>
+                <h1 className={title({size: "lg", color: "pink"})}>Where you Want.</h1>
+              </div>
+            </div>
+            <p
+              className={subtitle({
+                class: "mt-4 md:w-full text-center flex justify-center items-center",
+              })}
+            >
+              How to keep watching when travelling away from your home country.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Existing Events Grid */}
+      <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-10">
+        <AnimatePresence>
+          {isMounted &&
+            events.map((event) => (
+              <motion.article
+                key={event.id}
+                animate={{opacity: 1, y: 0}}
+                exit={{opacity: 0, y: 5}}
+                initial={{opacity: 0, y: 5}}
+                transition={{duration: 0.3}}
+              >
+                <Card
+                  isBlurred
+                  isPressable
+                  as={NextLink}
+                  className="p-2 h-full border-transparent text-start bg-gray-100 dark:bg-gray-800 flex flex-col justify-between relative"
+                  href={`/events/${event.id}`}
+                >
+                  <CardHeader className="flex flex-col items-start text-left overflow-hidden">
+                    <Link
+                      as={NextLink}
+                      className="font-semibold text-lg truncate"
+                      href={`/events/${event.id}`}
+                      underline="hover"
+                    >
+                      {event.name}
+                    </Link>
+                    <small className="text-default-500">{event.sportType}</small>
+                    <p className="text-default-500 truncate">{event.description}</p>
+                    <p className="text-blue-500 font-bold mt-1">
+                      Scheduled for:{" "}
+                      {new Date(event.date).toLocaleDateString("en-GB", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                      })}
+                    </p>
+                  </CardHeader>
+
+                  <CardBody className="pt-0 px-2 pb-1 flex-grow">
+                    <div className="relative w-full h-40 flex justify-center items-center overflow-hidden">
+                      <Image
+                        alt={event.name}
+                        className="rounded-lg"
+                        height={160}
+                        loading="lazy"
+                        objectFit="contain"
+                        sizes="(max-width: 640px) 100vw,
+                               (max-width: 768px) 50vw,
+                               (max-width: 1024px) 33.33vw,
+                               25vw"
+                        src={event.image}
+                        width={300}
+                      />
+                    </div>
+                  </CardBody>
+
+                  <CardFooter className="absolute bg-black/40 dark:bg-white/20 bottom-0 z-10 border-t border-default-600 dark:border-default-100 flex justify-center items-center p-4 w-full backdrop-blur-md rounded-b-xl">
+                    <CountdownTimer eventDate={event.date} />
+                  </CardFooter>
+                </Card>
+              </motion.article>
+            ))}
+        </AnimatePresence>
+      </div>
+    </>
   );
 };
