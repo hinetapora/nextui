@@ -53,7 +53,7 @@ export const EventsSchedule = ({events}: EventsScheduleProps) => {
                 class: "mt-4 md:w-full text-center flex justify-center items-center",
               })}
             >
-              How to keep watching when travelling away from your home country.
+              How to keep watching with VPN when travelling away from your home country.
             </p>
           </div>
         </div>
@@ -75,7 +75,7 @@ export const EventsSchedule = ({events}: EventsScheduleProps) => {
                   isBlurred
                   isPressable
                   as={NextLink}
-                  className="p-2 h-full border-transparent text-start bg-gray-100 dark:bg-gray-800 flex flex-col justify-between relative"
+                  className="p-2 h-full border-transparent text-start bg-gray-100 dark:bg-gray-200 flex flex-col justify-between relative"
                   href={`/events/${event.id}`}
                 >
                   <CardHeader className="flex flex-col items-start text-left overflow-hidden">
@@ -83,13 +83,17 @@ export const EventsSchedule = ({events}: EventsScheduleProps) => {
                       as={NextLink}
                       className="font-semibold text-lg truncate"
                       href={`/events/${event.id}`}
+                      style={{color: "#000"}}
                       underline="hover"
                     >
                       {event.name}
                     </Link>
+
                     <small className="text-default-500">{event.sportType}</small>
-                    <p className="text-default-500 truncate">{event.description}</p>
-                    <p className="text-blue-500 font-bold mt-1">
+
+                    <small className="text-default-500 truncate">{event.description}</small>
+
+                    <p className="text-gray-900 dark:text-gray-400 font-bold mt-1">
                       Scheduled for:{" "}
                       {new Date(event.date).toLocaleDateString("en-GB", {
                         day: "2-digit",
