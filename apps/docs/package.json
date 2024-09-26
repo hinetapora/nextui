@@ -110,7 +110,7 @@
     "@types/lodash": "^4.14.194",
     "@types/marked": "^5.0.0",
     "@types/mdx": "^2.0.5",
-    "@types/node": "20.2.5",
+    "@types/node": "18.x",
     "@types/nprogress": "^0.2.0",
     "@types/parse-numeric-range": "^0.0.1",
     "@types/react": "18.2.8",
