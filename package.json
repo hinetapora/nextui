@@ -150,5 +150,9 @@
     "node": ">=20.x",
     "pnpm": ">=9.x"
   },
-  "packageManager": "pnpm@9.6.0"
+  "packageManager": "pnpm@9.6.0",
+  "dependencies": {
+    "contentlayer": "^0.3.4",
+    "next-contentlayer": "^0.3.4"
+  }
 }
