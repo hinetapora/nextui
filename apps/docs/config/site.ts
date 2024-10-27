@@ -1,19 +1,19 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "NextUI - Beautiful, fast and modern React UI Library",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "Unblock the internet",
+  description: "Free your internet experience and enjoy what you want, when you want.",
   ogImage: "https://nextui.org/twitter-cards/nextui.jpeg",
   author: "Junior Garcia",
   email: "jrgarciadev@gmail.com",
-  siteUrl: "https://nextui.org",
-  creator: "@getnextui",
+  siteUrl: "https://unblockvpn.ai",
+  creator: "@unblockvpn",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://nextui.org",
-    siteName: "NextUI",
-    description: "Beautiful, fast and modern React UI Library",
+    url: "https://unblockvpn.ai",
+    siteName: "UnblockVPN",
+    description: "Free your internet experience and enjoy what you want, when you want.",
     images: [
       {
         url: "https://nextui.org/twitter-cards/nextui.jpeg",
@@ -25,17 +25,17 @@ export const siteConfig = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "NextUI - Beautiful, fast and modern React UI Library",
-    description: "Make beautiful websites regardless of your design experience.",
+    title: "Free your internet experience and enjoy what you want, when you want.",
+    description: "Free your internet experience and enjoy what you want, when you want.",
     image: "https://nextui.org/twitter-cards/nextui.jpeg",
-    creator: "@getnextui",
+    creator: "@unblockvpn",
   },
   links: {
-    github: "https://github.com/nextui-org/nextui",
-    twitter: "https://twitter.com/getnextui",
+    github: "https://github.com/nextui-org/unblockvpn",
+    twitter: "https://twitter.com/unblockvpn",
     docs: "https://nextui-docs-v2.vercel.app",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
-    portfolio: "https://jrgarciadev.com",
+    discord: "https://discord.gg/unblockvpn",
+    sponsor: "https://patreon.com/unblockvpn",
+    portfolio: "https://unblockvpn.ai",
   },
 };

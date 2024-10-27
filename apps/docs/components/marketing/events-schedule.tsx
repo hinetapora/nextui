@@ -36,13 +36,15 @@ export const EventsSchedule = ({events}: EventsScheduleProps) => {
   return (
     <>
       {/* Add the new section at the top */}
-      <section className={sectionWrapper({class: "mt-16 lg:mt-44"})}>
+      <section className={sectionWrapper({class: "mt-6 lg:mt-14"})}>
         <div className="flex flex-col gap-0 md:gap-8">
           <div>
             <div className={titleWrapper({class: "items-center"})}>
               <div>
                 <h1 className={title({size: "lg"})}>Watch&nbsp;</h1>
-                <h1 className={title({color: "yellow", size: "lg"})}>What you Want</h1>
+              </div>
+              <div>
+                <h1 className={title({color: "yellow", size: "lg"})}>What you Want,</h1>
               </div>
               <div>
                 <h1 className={title({size: "lg", color: "pink"})}>Where you Want.</h1>
@@ -53,7 +55,7 @@ export const EventsSchedule = ({events}: EventsScheduleProps) => {
                 class: "mt-4 md:w-full text-center flex justify-center items-center",
               })}
             >
-              How to keep watching with VPN when travelling away from your home country.
+              Keep watching, at home and on the road.
             </p>
           </div>
         </div>

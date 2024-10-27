@@ -33,7 +33,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {currentVersion} from "@/utils/version";
 import {siteConfig} from "@/config/site";
 import {Route} from "@/libs/docs/page";
-import {LargeLogo, SmallLogo, ThemeSwitch} from "@/components";
+import {LargeLogo, ThemeSwitch} from "@/components";
 import {TwitterIcon, GithubIcon, DiscordIcon, SearchLinearIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {DocsSidebar} from "@/components/docs/sidebar";
@@ -154,7 +154,6 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             href="/"
             onClick={() => handlePressNavbarItem("Home", "/")}
           >
-            <SmallLogo className="w-6 h-6 md:hidden" />
             <LargeLogo className="h-5 md:h-6" />
           </NextLink>
           {ref.current ? (
