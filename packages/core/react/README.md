@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://nextui.org">
       <img width="20%" src="https://raw.githubusercontent.com/nextui-org/nextui/main/apps/docs/public/isotipo.png" alt="nextui" />
-      <h1 align="center">Unblocker</h1>
+      <h1 align="center">Stream Unblocker</h1>
   </a>
 </p>
 </br>
