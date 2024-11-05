@@ -1,3 +1,5 @@
+// components/pro-banner.tsx
+
 "use client";
 
 import {Icon} from "@iconify/react/dist/offline";
