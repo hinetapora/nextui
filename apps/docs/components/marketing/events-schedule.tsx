@@ -10,7 +10,6 @@ import CountdownTimer from "./CountdownTimer";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 
 // Import the utility functions or components
-import {title, subtitle, titleWrapper, sectionWrapper} from "@/components/primitives";
 
 interface Event {
   id: string;
@@ -36,7 +35,7 @@ export const EventsSchedule = ({events}: EventsScheduleProps) => {
   return (
     <>
       {/* Add the new section at the top */}
-      <section className={sectionWrapper({class: "mt-6 lg:mt-14"})}>
+      {/*       <section className={sectionWrapper({class: "mt-6 lg:mt-14"})}>
         <div className="flex flex-col gap-0 md:gap-8">
           <div>
             <div className={titleWrapper({class: "items-center"})}>
@@ -59,7 +58,7 @@ export const EventsSchedule = ({events}: EventsScheduleProps) => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Existing Events Grid */}
       <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-10">
